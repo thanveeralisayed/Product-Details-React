@@ -1,25 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import react, {Component} from 'react';
+import classes from './App.module.css';
+import ProductPreview from './ProductPreview/ProductPreview';
+import ProductDetails from './ProductDetails/ProductDetails';
+import Topbar from './Topbar/Topbar';
+import ProductData from './utils/ ProductData';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+
+class App extends Component {
+
+  state = {
+    ProductData : ProductData,
+    CurrentPreviewImage : 'https://imgur.com/iOeUBV7.png',
+    ShowHearBeatSection : false
+  }
+  
+
+  render()
+  {
+    return (
+      <div className="App">
+          
+  
+              <Topbar/>
+  
+          
+  
+  
+          <div className={classes.MainContainer}>
+  
+            <div className={classes.ProductPreview}>
+  
+              <ProductPreview CurrentPreviewImage={this.state.CurrentPreviewImage} ShowHeartBeatSection={this.state.ShowHearBeatSection}/>
+  
+            </div>
+  
+            <div className={classes.ProductDetails}>
+  
+              <ProductDetails data={this.state.ProductData}/>
+  
+            </div>
+                
+          </div>
+  
+  
+      </div>
+    );
+  
+  }
+
+  }
 
 export default App;

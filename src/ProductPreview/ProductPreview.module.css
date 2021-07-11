@@ -1,0 +1,55 @@
+.ProductPreview {
+    width: 100%;
+    position: relative;
+  }
+  
+  .ProductPreview > img {
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+  
+  .TimeSection {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: rgb(252, 248, 248);
+    transform: translate(-50%,-50%);
+    font-size: 40px;
+    font-weight: 600;
+  }
+  
+  .HearBeatSection {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: rgb(252, 248, 248);
+    transform: translate(-50%,-50%);
+    font-size: 40px;
+    font-weight: 600;
+  }
+  
+  .HearBeatSection > i {
+    color: red;
+    animation: beat 1s infinite;
+  }
+  
+  @keyframes beat {
+      0% {
+        transform: scale(1,1);
+      }
+  
+      50% {
+        transform: scale(1.2,1.2);
+      }
+  
+      100% {
+        transform: scale(1,1);
+      }
+  }
+  
+  
+  .HearBeatSection > p {
+    margin-top: 16px;
+  }
+  
