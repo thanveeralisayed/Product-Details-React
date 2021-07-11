@@ -18,14 +18,17 @@ const ProductPreview = (props) =>
     <p>{`${CurrentHour}:${CurrentMinute}:${CurrentSeconds}`}</p>
     </div>;
 
+    console.log(props.CurrentPreviewImage);
+
     return(
     
     <div className={classes.ProductPreview}>
 
+    
     <img src={props.CurrentPreviewImage} alt="pro-prev"/>
 
     {
-        props.ShowHeartBeatSection ? hbeatsec : timesec
+        props.CurrentSelectedFeature === 0 ? timesec : hbeatsec
     }
 
         </div>

@@ -10,13 +10,27 @@ class App extends Component {
 
   state = {
     ProductData : ProductData,
-    CurrentPreviewImage : 'https://imgur.com/iOeUBV7.png',
-    ShowHearBeatSection : false
+    CurrentPreviewImagePos : 0,
+    CurrentSelectedFeature : 0
+  }
+  
+  
+
+  OnColorOptionClick = (pos) => {
+    console.log(pos);
+    // const updatedPreviewImage = this.state.ProductData.colorOptions[pos].imageUrl
+    this.setState({CurrentPreviewImagePos:pos})
+  }
+
+  OnFeatureButtonClick = (pos) => {
+    this.setState({CurrentSelectedFeature:pos})
   }
   
 
   render()
   {
+    
+
     return (
       <div className="App">
           
@@ -30,13 +44,13 @@ class App extends Component {
   
             <div className={classes.ProductPreview}>
   
-              <ProductPreview CurrentPreviewImage={this.state.CurrentPreviewImage} ShowHeartBeatSection={this.state.ShowHearBeatSection}/>
+              <ProductPreview CurrentPreviewImage={this.state.ProductData.colorOptions[this.state.CurrentPreviewImagePos].imageUrl}  CurrentSelectedFeature={this.state.CurrentSelectedFeature}/>
   
             </div>
   
             <div className={classes.ProductDetails}>
   
-              <ProductDetails data={this.state.ProductData}/>
+              <ProductDetails featurePos={this.state.CurrentSelectedFeature} imagePos={this.state.CurrentPreviewImagePos} OnFeatureButtonClick={this.OnFeatureButtonClick} OnColorOptionClick={this.OnColorOptionClick} data={this.state.ProductData}/>
   
             </div>
                 
